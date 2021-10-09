@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (button.id == "halveTime")
       //Lower the time
       button.onclick = () => {
-        if (secondsPerStretch <= 30) secondsPerStretch = 240;
+        if (secondsPerStretch <= 30) secondsPerStretch = 270;
         secondsPerStretch = secondsPerStretch - 30;
         button.innerHTML = "Time " + secondsPerStretch.toString();
       };
