@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Form2</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="wrapper">
+    <form>
+    <h1>Get on our e-list</h1>
+
+    <p><label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Your name or nickname here" size="48"></p>
+        
+    
+    <p><input type="submit" value="Click here to submit the form"/> 
+    <input type="reset" value="Click here to reset the form"/></p>
+
+    <p><label for="countries">Where do you live?</label>
+        <input list="countries">
+        <datalist id="countries">
+        <option value="Afghanistan">
+        <option value="Albania">
+        <option value="Algeria">
+        <option value="Andorra">
+        <option value="Angola">
+        <option value="Antigua and Barbuda">
+        <option value="Argentina">
+        <option value="Armenia">
+        <option value="Aruba">
+        <option value="Australia">
+        <option value="Austria">
+        <option value="Azerbaijan">
+        </datalist>
+    </p>
+
+    <p><label for="color">Please choose the color shirt you wish to order</label> <input type="color" name="shirt-color">
+        <br>
+        <label for="date">Please choose a date for delivery.</label> <input type="date" name="date-delivered">
+    </p>
+
+
+</form>
+
+    
+<p><label for="oninput">How often do you visit this site monthly?</label></p>
+<form oninput="x.value=parseInt(a.value)*parseInt(b.value)">
+<p><input type="number" id="a" placeholder="Visits/day"> *
+<input type="number" id="b" placeholder="Days you visit">=
+<output name="x" for="a b"></output>
+</form></p>
+
+
+
+        
+
+</body>
+</html>

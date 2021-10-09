@@ -1,0 +1,50 @@
+<!doctype html>
+<html> 
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slideshow 01</title> 
+<style>
+body{width:80%; margin:auto; font-family:sans-serif;} 
+figure {width:320px;} 
+img{width:100%;} 
+.slideshow, .frame {position: relative; height: 412px; width:412px; margin:auto;} 
+.slide {width: 100%; overflow: hidden; position: absolute; height: 100%; left: 0; top: 0; opacity: 0; transition: opacity 5s;} 
+.show:checked + .slide {opacity: 1;}  
+.button {display: inline-block;} 
+input{display:none;} 
+.button-label {font-size: 1rem; padding:1rem; background: black; display:block; height:1rem; width:1rem; text-align:center; border-radius: .5rem; color: white; cursor: pointer; transition: background 2s, color 2s;} 
+.button-label:hover{background:red;}  
+@media only screen and (max-width: 480px) {body {width:100%;}} 
+</style>
+</head>
+<body>
+<div class="frame">
+<h1>Roses</h1>
+<div class="slideshow">
+<input type="radio" name="button" class="show" id="one" checked="checked" />
+<div class="slide"><a target="_blank" title="Gmihail at Serbian Wikipedia [CC BY-SA 3.0 rs (https://creativecommons.org/licenses/by-sa/3.0/rs/deed.en)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:MME_HARDY_damascena_x_alba.jpg"><img width="512" alt="MME HARDY damascena x alba" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/MME_HARDY_damascena_x_alba.jpg/512px-MME_HARDY_damascena_x_alba.jpg"></a> 
+</div> 
+  <input type="radio" name="button" class="show" id="two" />
+  <div class="slide">
+  <a target="_blank" title="Gmihail at Serbian Wikipedia [CC BY-SA 3.0 rs (https://creativecommons.org/licenses/by-sa/3.0/rs/deed.en)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Olah_sorta.jpg"><img width="512" alt="Olah sorta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Olah_sorta.jpg/512px-Olah_sorta.jpg"></a>
+  </div>
+  <input type="radio" name="button" class="show" id="three" />
+  <div class="slide">
+  <a target="_blank" title="Daisy Butterfly [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Just_Joey_Rose.jpg"><img alt="Just Joey Rose" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Just_Joey_Rose.jpg/512px-Just_Joey_Rose.jpg"></a>
+  </div>
+  <input type="radio" name="button" class="show" id="four" />
+  <div class="slide">
+  <a target="_blank"  href="https://commons.wikimedia.org/wiki/File:Lovely_rose.jpg#/media/File:Lovely_rose.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Lovely_rose.jpg/1200px-Lovely_rose.jpg" alt="Lovely rose.jpg"></a><br>By &lt;a href="//commons.wikimedia.org/wiki/User:Anoop_sai_kashyap" title="User:Anoop sai kashyap"&gt;Anoop sai kashyap&lt;/a&gt; - &lt;span class="int-own-work" lang="en"&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=59802012">Link</a>
+</div>
+
+</div>
+<ul>
+<li class="button"><label class="button-label" for="one">1</label></li>
+<li class="button"><label class="button-label" for="two">2</label></li>
+<li class="button"><label class="button-label" for="three">3</label></li>
+<li class="button"><label class="button-label" for="four">4</label></li>
+
+</ul>
+</div>
+</body>
+</html>

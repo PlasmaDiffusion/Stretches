@@ -1,0 +1,240 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* 
+#5F3F9E 
+#BB99FF
+#9C75EB
+#9E982F
+#EBE475
+*/
+
+/* The body tag style applies to all elements on the page */
+body {
+  background-color: black;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* The wrapper ID style is used with a div tag to provide a 960px wide page */
+#wrapper {
+  width: 960px;
+  height: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #9e982f;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#5e436b+1,340049+100 */
+  background: rgb(94, 67, 107); /* Old browsers */
+  /*background: -moz-linear-gradient(
+    left,
+    rgb(160, 104, 185) 1%,
+    rgb(104, 0, 145) 100%
+  ); /* FF3.6-15 */
+  /*background: -webkit-linear-gradient(
+    left,
+    rgb(160, 104, 185) 1%,
+    rgb(104, 0, 145) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  /*background: linear-gradient(
+    to right,
+    rgb(160, 104, 185) 1%,
+    rgb(104, 0, 145) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e436b', endColorstr='#340049',GradientType=1 ); /* IE6-9 */
+}
+
+/* The right-column ID style is floated right */
+#right-column {
+  float: right;
+  width: 600px;
+  height: 600px;
+  background-color: #bb99ff;
+}
+
+/* The left-column ID style is floated left */
+#left-column {
+  float: left;
+  width: 360px;
+  background-color: #9c75eb;
+  height: 600px;
+}
+
+/* Defining a style for a set of tags separated by commas applies the style to all tags */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  margin-left: 15px;
+}
+
+h1 {
+  font-family: "Texturina", serif;
+}
+
+h1,
+p {
+  text-shadow: 1px 1px #5f3f9e;
+}
+
+.center {
+  margin: auto;
+  margin-top: 50%;
+  width: 50%;
+}
+
+.big {
+  font-size: 8rem;
+  width: 90%;
+  margin: auto;
+}
+
+.med {
+  font-size: 8rem;
+  width: 100%;
+  margin: auto;
+}
+
+#footer {
+  height: 80px;
+}
+
+#banner {
+  height: 120px;
+  background-color: #5f3f9e;
+}
+
+/* Defining a style for a set of tags not separated by commas applies the style only to all tags within the preceding tag*/
+#banner h1 {
+  color: white;
+}
+
+/* Advanced Web design relies on class or ID styles, never tables */
+.box,
+.box-small {
+  height: 150px;
+  width: 150px;
+  float: left;
+  background-color: #ebe475;
+  margin: 15px;
+  opacity: 1;
+  border-radius: 8px;
+}
+
+.box-small {
+  height: 50px;
+}
+
+/* The following pseudo-class applies to the box class when in a hovered state */
+.box:hover,
+.box-small:hover {
+  color: white;
+  background-color: #9e982f;
+  opacity: 1;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#c1ae00+0,efde6b+100 */
+  background: rgb(193, 174, 0); /* Old browsers */
+  background: -moz-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(193, 174, 0, 1) 0%,
+    rgba(239, 222, 107, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(193, 174, 0, 1) 0%,
+    rgba(239, 222, 107, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(193, 174, 0, 1) 0%,
+    rgba(239, 222, 107, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1ae00', endColorstr='#efde6b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+/* This clear class style terminates float */
+.clear {
+  clear: both;
+}
+
+video {
+  width: 400px;
+  padding: 15px;
+  margin: 15px;
+  background-color: black;
+  border: 6px white solid;
+  box-shadow: 10px 10px 5px black;
+}
+
+header,
+footer {
+  background-color: white;
+  color: red;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+aside {
+  background-color: beige;
+  float: right;
+  width: 300px;
+  margin: 5px;
+  padding: 5px;
+}
+
+figure {
+  position: relative;
+  width: 220px;
+  height: 350px;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+figcaption {
+  position: bottom;
+  background-color: black;
+  color: white;
+}
+
+/*Options*/
+label {
+  font-size: 4rem;
+  color: white;
+}
+
+#options {
+  width: 225%;
+}
+
+input[type="checkbox"] {
+  margin: 50px;
+  margin-left: 250px;
+  transform: scale(3);
+}
+
+input[type="range"]
+{
+  width: 70px;
+}
+
+.timeSliderLabel
+{
+  font-size: x-large;
+}
+
+a {
+  font-size: 3rem;
+}
+
+#enableStretch
+{
+ font-size: 3rem; 
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Feedback</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrapper">
+<h1>Please share your feedback</h1>
+
+<form action="feedback.php" method="post" id="tswfbform" accept-charset="UTF-8">
+    <p>
+    <label for="tswname">Name</label> <input type="text" name="fullname" style="max-width: 100%;" id="tswname" size="39" /><br />&nbsp;<br />
+    <label for="tswemail">Email</label> <input type="text" style="max-width: 100%;" id="tswemail" name="email" size="39" /><br />&nbsp;<br />
+    <label for="tswcomments">Comments</label><br />&nbsp;<br />
+    <textarea rows="15" cols="45" name="comments" style="max-width: 100%;" id="tswcomments"></textarea>
+    <br />&nbsp;<br />
+    
+
+    <input id="tswsubmit" type="submit" value="Send Feedback" />
+
+    </p>
+</form>
+    
+
+</div>
+</body>
+</html>

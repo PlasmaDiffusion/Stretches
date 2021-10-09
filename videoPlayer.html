@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Video Template</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+<div id="wrapper">
+<h1>Watch Our Video!<h1>
+
+    <video width="320" height="240" controls id="video">
+        <source src="webVideos/on_record.mp4" type="video/mp4" controls poster="webVideos/onRecord.png">
+        <source src="webVideos/on_record.ogv" type="video/ogg" controls poster="webVideos/onRecord.png">
+      Your browser doesn't support the video tag. Click <a href=http://www.firefox.com>here</a> to download the Firefox browser for your operating system.
+      </video>
+
+      <br>
+        <button onclick="playPause()" class="box-small">Play or pause the video</button> 
+
+
+        <script> 
+            var myVideo=document.getElementById("video"); 
+            function playPause()
+            { 
+            if (myVideo.paused) 
+              myVideo.play(); 
+            else 
+              myVideo.pause(); 
+            } 
+        </script>
+      
+
+</div>
+</body>
+</html>

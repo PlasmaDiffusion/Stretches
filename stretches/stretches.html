@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stretches</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
+<script src="stretches.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+<div id="wrapper" class="center">
+    <h1 id="time" style="font-size: 20rem; text-shadow: none;" class="center"> </h1>
+    <h2 id="stretchName" style="font-size: 6rem; color: white;" class="center"></h2>
+        <br><br><br>
+    <button class="big" id="pause">Go</button>
+
+</div>
+
+<div id="options" style="width:250%">
+
+    <div style="padding-bottom: 500px;"></div>
+
+    <button class="med" id="halveTime">Time 120</button>
+    <br><br>
+    <button class="med" id="disableAll">Disable All</button>
+    <br><br>
+    <div id="enableStretch" class="checkbox">
+        <input type="checkbox" id="check" checked>
+        <label for="check"> Disable All </label>
+        <input type="range"  min="0" max="4" value="2" id="timeSlider">
+        <label for="timeSlider" class="timeSliderLabel"> 1 </label>
+    </div>
+    
+
+    <a href="?q=0">CPPS</a> <br> <br>
+    <a href="?q=1">Physio</a>
+</div>
+
+
+</body>
+</html>
