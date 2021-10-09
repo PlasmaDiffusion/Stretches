@@ -73,10 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (button.id == "halveTime")
       //Lower the time
       button.onclick = () => {
-        if (secondsPerStretch < 30) secondsPerStretch = 240;
-        secondsPerStretch = Math.floor(secondsPerStretch / 2);
+        if (secondsPerStretch <= 30) secondsPerStretch = 240;
+        secondsPerStretch = secondsPerStretch - 30;
         button.innerHTML = "Time " + secondsPerStretch.toString();
       };
+      else if (button.id == "save")
+      button.onclick = () =>{saveStretchMultipliers(set);};
   });
 
   //Get cloning the checkbox to allow you to enable certain stretches
@@ -250,6 +252,7 @@ function changeStretchSet()
       1,
       2,
       1,
+      1,
     2];
     stretchNames = [
     "Oburator",
@@ -270,6 +273,7 @@ function changeStretchSet()
 
   }
 
+  loadStretchMultipliers(set);
 
   document.getElementById("halveTime").innerHTML = "Time " + secondsPerStretch;
 
@@ -304,4 +308,21 @@ function getCookie(cname) {
     }
   }
   return "";
+}
+
+
+function saveStretchMultipliers(set)
+{
+  for (let i =0; i < stretchNames.length; i++)
+  {
+    createCookie(set+"multiplier"+i, stretchTimeMultipliers[i], 30);
+  }
+}
+
+function loadStretchMultipliers(set)
+{
+  for (let i =0; i < stretchNames.length; i++)
+  {
+    stretchTimeMultipliers[i] = getCookie(set+"multiplier"+i);
+  }
 }
