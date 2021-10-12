@@ -167,8 +167,9 @@ function Tick() {
       (time % 60 < 10 ? "0" : "") +
       (time % 60).toString();
 
-    //Vibrate phone when finished a cycle.
-    if (time % secondsPerStretch == 0) window.navigator.vibrate(500);
+    //Vibrate phone when finished a cycle. Do it twice when over a minute.
+    if (time > 60 && time % ((secondsPerStretch*stretchTimeMultipliers[currentStretch])/2) == 0) window.navigator.vibrate(500);
+    else if (time % secondsPerStretch == 0) window.navigator.vibrate(500);
     //Vibrate for quick two part stretches (i.e. vibrate per minute instead of per two minutes)
     else if (time % (secondsPerStretch / 2) == 0 && currentStretch == 2 && set == stretchSet.CPPS)
       window.navigator.vibrate(500);
