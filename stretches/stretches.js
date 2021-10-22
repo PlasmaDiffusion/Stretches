@@ -37,17 +37,6 @@ var sObj = {
     "Forward Hip",
   ],
   currentStretch: -1, //Starts at negative to skip the first one if disabled
-  //Debug stretches
-  /*var sObj.stretchTimeMultipliers = [
-    0.016,
-    0.016,
-    0.036,
-    0.036,
-    0.016,
-    0.016,
-    0.016,
-    0.016,
-  ];*/
   stretchTimeMultipliers : [1, 1, 1, 2, 2, 1, 1, 1, 2],
   secondsPerStretch : 120,
   stretchColours : [
@@ -107,10 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
     newCheck.id = "enableStretch"+i.toString();
     newCheck.children[0].id = "check" + i.toString();
     newCheck.children[1].innerHTML = sObj.stretchNames[i];
-    newCheck.children[1].for = "check1" + i.toString();
-
-    if(!sObj.stretchEnabled[i]) sObj.stretchEnabled.push(true);
-    newCheck.value=sObj.stretchEnabled[i];
+    newCheck.children[1].for = "check1" + i.toString(); 
+    console.log(sObj.stretchEnabled[i]);
+    newCheck.children[0].checked=(sObj.stretchEnabled[i]=='true');
 
     //Time slider
     newCheck.children[2].id = "timeSlider" + i.toString();
@@ -159,10 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
   p.children[2].style.display = "none";
   p.children[3].style.display = "none";
 
-  //Set stretches based on what the cached checkboxes are
-  for (let i = 0; i < sObj.stretchNames.length; i++) {
-    sObj.stretchEnabled[i] = document.getElementById("check" + i.toString()).checked;
-  }
 
 });
 
@@ -186,7 +170,7 @@ function Tick() {
       (time % 60).toString();
 
     //Vibrate phone when finished a cycle. Do it twice when over a minute.
-    if (time > 60 && time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])/2) == 0) window.navigator.vibrate(500);
+    if (time >= 120 && time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])/2) == 0) window.navigator.vibrate(500);
     else if (time % sObj.secondsPerStretch == 0) window.navigator.vibrate(500);
     //Vibrate for quick two part stretches (i.e. vibrate per minute instead of per two minutes)
     else if (time % (sObj.secondsPerStretch / 2) == 0 && sObj.currentStretch == 2 && set == sObj.stretchSet.CPPS)

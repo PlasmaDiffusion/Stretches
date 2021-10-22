@@ -116,6 +116,7 @@ export function loadStretchMultipliers(sObj)
   for (let i =0; i < sObj.stretchNames.length; i++)
   {
     sObj.stretchTimeMultipliers[i] = getCookie(sObj.set+"multiplier"+i);
-    sObj.stretchEnabled.push(getCookie(sObj.set+"enabled"+i));
+    sObj.stretchEnabled[i]=getCookie(sObj.set+"enabled"+i);
+    console.log(sObj.stretchEnabled[i])
   }
 }
