@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newCheck.children[1].innerHTML = sObj.stretchNames[i];
     newCheck.children[1].for = "check1" + i.toString(); 
     console.log(sObj.stretchEnabled[i]);
-    newCheck.children[0].checked=(sObj.stretchEnabled[i]=='true');
+    newCheck.children[0].checked=sObj.stretchEnabled[i];
 
     //Time slider
     newCheck.children[2].id = "timeSlider" + i.toString();
@@ -170,11 +170,11 @@ function Tick() {
       (time % 60).toString();
 
     //Vibrate phone when finished a cycle. Do it twice when over a minute.
-    if (time >= 120 && time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])/2) == 0) window.navigator.vibrate(500);
-    else if (time % sObj.secondsPerStretch == 0) window.navigator.vibrate(500);
-    //Vibrate for quick two part stretches (i.e. vibrate per minute instead of per two minutes)
+    if (time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])) == 0) window.navigator.vibrate(500);
+    //Vibrate for quick two part OG CPPS stretches (i.e. vibrate per minute instead of per two minutes)
     else if (time % (sObj.secondsPerStretch / 2) == 0 && sObj.currentStretch == 2 && set == sObj.stretchSet.CPPS)
       window.navigator.vibrate(500);
+      //Vibrate for the 3 part lunge stretch
     else if (time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])/3) == 0 && (sObj.currentStretch == 1 || sObj.currentStretch == 2) && sObj.set == stretchSet.FAB_SEVEN)
       window.navigator.vibrate(500);
 
