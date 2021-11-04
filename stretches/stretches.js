@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
           optionsMenu.style.display = "none";
 
           //Save a cookie of the time you set.
-          createCookie("timeForSet" + (sObj.set), sObj.secondsPerStretch, 1);
+          createCookie("timeForSet" + (sObj.set), sObj.secondsPerStretch, 30);
 
           NextStretch();
         } else TogglePause();

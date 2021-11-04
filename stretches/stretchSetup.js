@@ -52,7 +52,7 @@ export function changeStretchSet(sObj)
     "Child Pose",
     "Cat Stretch",
     "Chest Stretch",
-    "Hamstrings",
+    "Clam",
     "Bridging",
     "Tabletop",
     "Rev. Kegel"
@@ -107,7 +107,7 @@ export function saveStretchMultipliers(sObj)
   for (let i =0; i < sObj.stretchNames.length; i++)
   {
     createCookie(sObj.set+"multiplier"+i, sObj.stretchTimeMultipliers[i], 30);
-    createCookie(sObj.set+"enabled"+i, sObj.stretchEnabled[i], true);
+    createCookie(sObj.set+"enabled"+i, sObj.stretchEnabled[i], 30);
   }
 }
 
