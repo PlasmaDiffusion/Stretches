@@ -53,8 +53,8 @@ export function changeStretchSet(sObj)
     "Cat Stretch",
     "Chest Stretch",
     "Clam",
+    "Butterfly",
     "Bridging",
-    "Tabletop",
     "Rev. Kegel"
 
   ];

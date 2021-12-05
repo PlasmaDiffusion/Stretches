@@ -48,6 +48,7 @@ var sObj = {
     "aqua",
     "limegreen",
     "green",
+    "#58D68D",
     "yellow",
   ],
   stretchEnabled : [],
@@ -172,10 +173,10 @@ function Tick() {
     //Vibrate phone when finished a cycle. Do it twice when over a minute.
     if (time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])) == 0) window.navigator.vibrate(500);
     //Vibrate for quick two part OG CPPS stretches (i.e. vibrate per minute instead of per two minutes)
-    else if (time % (sObj.secondsPerStretch / 2) == 0 && sObj.currentStretch == 2 && set == sObj.stretchSet.CPPS)
+    else if (time % (sObj.secondsPerStretch / 2) == 0 && sObj.currentStretch == 2  && set == sObj.stretchSet.CPPS)
       window.navigator.vibrate(500);
       //Vibrate for the 3 part lunge stretch
-    else if (time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])/3) == 0 && (sObj.currentStretch == 1 || sObj.currentStretch == 2) && sObj.set == stretchSet.FAB_SEVEN)
+    else if (time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])/3) == 0 && (sObj.currentStretch == 2 || sObj.currentStretch == 3) && sObj.set == stretchSet.FAB_SEVEN)
       window.navigator.vibrate(500);
 
     //Go on to the next stretch after the set amount of time in the arrays
