@@ -176,8 +176,8 @@ function Tick() {
     else if (time % (sObj.secondsPerStretch / 2) == 0 && sObj.currentStretch == 2  && set == sObj.stretchSet.CPPS)
       window.navigator.vibrate(500);
       //Vibrate for the 3 part lunge stretch
-    else if (time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])/3) == 0 && (sObj.currentStretch == 2 || sObj.currentStretch == 3) && sObj.set == stretchSet.FAB_SEVEN)
-      window.navigator.vibrate(500);
+    //else if (time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])/3) == 0 && (sObj.currentStretch == 1 || sObj.currentStretch == 2) && sObj.set == stretchSet.FAB_SEVEN)
+    //  window.navigator.vibrate(500);
 
     //Go on to the next stretch after the set amount of time in the arrays
     if (time >= sObj.secondsPerStretch * sObj.stretchTimeMultipliers[sObj.currentStretch])
