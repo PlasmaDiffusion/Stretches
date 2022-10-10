@@ -86,13 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
       //Save slot based on last character (save0/load0 means first slot)
       button.onclick = () => {
         saveStretchMultipliers(sObj, button.id[4]);
+        button.style.color= "green";
       };
     } else if (button.id.includes("load")) {
       if (button.id[4] === getCookie("saveSlot")) button.style.backgroundColor= "grey";
       button.onclick = () => {
         loadStretchMultipliers(sObj, button.id[4]);
         createCookie("saveSlot", button.id[4], 300);
-        window.location.reload();
+        window.location.href = window.location.href;
       };
     }
   });
