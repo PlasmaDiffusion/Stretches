@@ -98,11 +98,14 @@ p {
   width: 100%;
   margin: auto;
   text-align: center;
-  margin-top: 2rem;
-  margin-left: 4rem;
+  margin-top: 4rem;
+  margin-left: 8rem;
 }
 
-button:focus, button:hover
+button{
+  border-radius: 10px;
+}
+button:hover, button:active
 {
 color: rgb(64, 130, 130);
 }
