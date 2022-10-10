@@ -6,7 +6,7 @@ const stretchSet = {
   
 
 //Change to a different set of stretches depending on url query
-export function changeStretchSet(sObj)
+export function changeStretchSet(sObj, saveId)
 {
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -64,7 +64,7 @@ export function changeStretchSet(sObj)
 
   }
 
-  loadStretchMultipliers(sObj);
+  loadStretchMultipliers(sObj, saveId);
 
   document.getElementById("halveTime").innerHTML = "Time " + sObj.secondsPerStretch;
 
@@ -102,21 +102,21 @@ export function getCookie(cname) {
 }
 
 
-export function saveStretchMultipliers(sObj)
+export function saveStretchMultipliers(sObj, id)
 {
   for (let i =0; i < sObj.stretchNames.length; i++)
   {
-    createCookie(sObj.set+"multiplier"+i, sObj.stretchTimeMultipliers[i], 30);
-    createCookie(sObj.set+"enabled"+i, sObj.stretchEnabled[i], 30);
+    createCookie(sObj.set+"_multiplier_save"+id+"_stretch"+i, sObj.stretchTimeMultipliers[i], 300);
+    createCookie(sObj.set+"_enabled_save"+id+"_stretch"+i, sObj.stretchEnabled[i], 300);
   }
 }
 
-export function loadStretchMultipliers(sObj)
+export function loadStretchMultipliers(sObj, id)
 {
   for (let i =0; i < sObj.stretchNames.length; i++)
   {
-    sObj.stretchTimeMultipliers[i] = getCookie(sObj.set+"multiplier"+i);
-    sObj.stretchEnabled[i]=getCookie(sObj.set+"enabled"+i)=='true';
+    sObj.stretchTimeMultipliers[i] = getCookie(sObj.set+"_multiplier_save"+id+"_stretch"+i);
+    sObj.stretchEnabled[i]=getCookie(sObj.set+"_enabled_save"+id+"_stretch"+i)=='true';
     console.log(sObj.stretchEnabled[i])
   }
 }

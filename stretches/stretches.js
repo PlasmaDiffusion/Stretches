@@ -1,31 +1,29 @@
-import { loadStretchMultipliers,
+import {
+  loadStretchMultipliers,
   saveStretchMultipliers,
   changeStretchSet,
   createCookie,
-  getCookie
+  getCookie,
 } from "./stretchSetup.js";
 
 //Global timer
 var time = 0;
 var timer = setInterval(Tick, 1000);
 
-
 const stretchSet = {
   CPPS: 0,
-  FAB_SEVEN: 1
-}
-
+  FAB_SEVEN: 1,
+};
 
 var sObj = {
-  stretchSet : {
+  stretchSet: {
     CPPS: 0,
-    FAB_SEVEN: 1
+    FAB_SEVEN: 1,
   },
-  
-  set : stretchSet.CPPS,
-  
-  
-  stretchNames : [
+
+  set: stretchSet.CPPS,
+
+  stretchNames: [
     "Squat Stretch",
     "Leg Push",
     "Calves",
@@ -37,9 +35,9 @@ var sObj = {
     "Forward Hip",
   ],
   currentStretch: -1, //Starts at negative to skip the first one if disabled
-  stretchTimeMultipliers : [1, 1, 1, 2, 2, 1, 1, 1, 2],
-  secondsPerStretch : 120,
-  stretchColours : [
+  stretchTimeMultipliers: [1, 1, 1, 2, 2, 1, 1, 1, 2],
+  secondsPerStretch: 120,
+  stretchColours: [
     "",
     "lightcoral",
     "salmon",
@@ -51,15 +49,15 @@ var sObj = {
     "#58D68D",
     "yellow",
   ],
-  stretchEnabled : [],
-  
-}
+  stretchEnabled: [],
+};
 
 var paused = true;
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  changeStretchSet(sObj);
+  let slot = getCookie("saveSlot");
+  if (slot === "") slot = "0";
+  changeStretchSet(sObj, slot);
 
   document.getElementById("stretchName").innerHTML = sObj.stretchNames[0];
 
@@ -72,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
           optionsMenu.style.display = "none";
 
           //Save a cookie of the time you set.
-          createCookie("timeForSet" + (sObj.set), sObj.secondsPerStretch, 30);
+          createCookie("timeForSet" + sObj.set, sObj.secondsPerStretch, 30);
 
           NextStretch();
         } else TogglePause();
@@ -84,8 +82,19 @@ document.addEventListener("DOMContentLoaded", () => {
         sObj.secondsPerStretch = sObj.secondsPerStretch - 30;
         button.innerHTML = "Time " + sObj.secondsPerStretch.toString();
       };
-      else if (button.id == "save")
-      button.onclick = () =>{saveStretchMultipliers(sObj);};
+    else if (button.id.includes("save")) {
+      //Save slot based on last character (save0/load0 means first slot)
+      button.onclick = () => {
+        saveStretchMultipliers(sObj, button.id[4]);
+      };
+    } else if (button.id.includes("load")) {
+      if (button.id[4] === getCookie("saveSlot")) button.style.backgroundColor= "grey";
+      button.onclick = () => {
+        loadStretchMultipliers(sObj, button.id[4]);
+        createCookie("saveSlot", button.id[4], 300);
+        window.location.reload();
+      };
+    }
   });
 
   //Get cloning the checkbox to allow you to enable certain stretches
@@ -94,12 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let i = 0; i < sObj.stretchNames.length; i++) {
     //Checkbox
     let newCheck = p.cloneNode(true);
-    newCheck.id = "enableStretch"+i.toString();
+    newCheck.id = "enableStretch" + i.toString();
     newCheck.children[0].id = "check" + i.toString();
     newCheck.children[1].innerHTML = sObj.stretchNames[i];
-    newCheck.children[1].for = "check1" + i.toString(); 
+    newCheck.children[1].for = "check1" + i.toString();
     console.log(sObj.stretchEnabled[i]);
-    newCheck.children[0].checked=sObj.stretchEnabled[i];
+    newCheck.children[0].checked = sObj.stretchEnabled[i];
 
     //Time slider
     newCheck.children[2].id = "timeSlider" + i.toString();
@@ -127,12 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
   //Deselect all
   let disableButton = document.getElementById("disableAll");
   disableButton.onclick = () => {
+    let enableAll = true;
 
-    let enableAll=true;
-
-      for (let i = 0; i < sObj.stretchNames.length; i++) {
-        if (document.getElementById("check" + i.toString()).checked) enableAll=false;
-      }
+    for (let i = 0; i < sObj.stretchNames.length; i++) {
+      if (document.getElementById("check" + i.toString()).checked)
+        enableAll = false;
+    }
 
     for (let i = 0; i < sObj.stretchNames.length; i++) {
       sObj.stretchEnabled[i] = enableAll;
@@ -140,15 +149,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  
-
   //Hide the slider and check marks that got cloned
-  p.children[0].style.display="none";
-  p.children[1].style.display="none";
+  p.children[0].style.display = "none";
+  p.children[1].style.display = "none";
   p.children[2].style.display = "none";
   p.children[3].style.display = "none";
-
-
 });
 
 function Wait() {
@@ -171,16 +176,29 @@ function Tick() {
       (time % 60).toString();
 
     //Vibrate phone when finished a cycle. Do it twice when over a minute.
-    if (time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])) == 0) window.navigator.vibrate(500);
-    //Vibrate for quick two part OG CPPS stretches (i.e. vibrate per minute instead of per two minutes)
-    else if (time % (sObj.secondsPerStretch / 2) == 0 && sObj.currentStretch == 2  && set == sObj.stretchSet.CPPS)
+    if (
+      time %
+        (sObj.secondsPerStretch *
+          sObj.stretchTimeMultipliers[sObj.currentStretch]) ==
+      0
+    )
       window.navigator.vibrate(500);
-      //Vibrate for the 3 part lunge stretch
+    //Vibrate for quick two part OG CPPS stretches (i.e. vibrate per minute instead of per two minutes)
+    else if (
+      time % (sObj.secondsPerStretch / 2) == 0 &&
+      sObj.currentStretch == 2 &&
+      set == sObj.stretchSet.CPPS
+    )
+      window.navigator.vibrate(500);
+    //Vibrate for the 3 part lunge stretch
     //else if (time % ((sObj.secondsPerStretch*sObj.stretchTimeMultipliers[sObj.currentStretch])/3) == 0 && (sObj.currentStretch == 1 || sObj.currentStretch == 2) && sObj.set == stretchSet.FAB_SEVEN)
     //  window.navigator.vibrate(500);
 
     //Go on to the next stretch after the set amount of time in the arrays
-    if (time >= sObj.secondsPerStretch * sObj.stretchTimeMultipliers[sObj.currentStretch])
+    if (
+      time >=
+      sObj.secondsPerStretch * sObj.stretchTimeMultipliers[sObj.currentStretch]
+    )
       NextStretch();
   }
 }
