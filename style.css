@@ -93,11 +93,14 @@ p {
   margin: auto;
 }
 
-.med {
+.med, .med-sm {
   font-size: 8rem;
   width: 100%;
   margin: auto;
-  text-align: center;
+  margin-left: 1rem;
+}
+
+.med-sm {
   margin-top: 4rem;
   margin-left: 8rem;
 }
