@@ -106,10 +106,8 @@ p {
   margin-left: 2rem;
 }
 
-.sets {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
+.sets a{
+  margin-left: 100px; 
 }
 
 button{
