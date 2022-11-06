@@ -13,12 +13,14 @@ var timer = setInterval(Tick, 1000);
 const stretchSet = {
   CPPS: 0,
   FAB_SEVEN: 1,
+  MPFD: 2,
 };
 
 var sObj = {
   stretchSet: {
     CPPS: 0,
     FAB_SEVEN: 1,
+    MPFD: 2,
   },
 
   set: stretchSet.CPPS,
@@ -48,6 +50,10 @@ var sObj = {
     "green",
     "#58D68D",
     "yellow",
+    "orange",
+    "#990F02",
+    "violet",
+    "purple",
   ],
   stretchEnabled: [],
 };
